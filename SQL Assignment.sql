@@ -7,18 +7,18 @@ use sqlAssignment;
 -- create EmployeeDetails table
 CREATE TABLE EmployeeDetails (
   EmpId INT NOT NULL PRIMARY KEY,
-  FullName VARCHAR(255) NOT NULL,
+  FullName KANAK NOT NULL,
   ManagerId INT,
   DateOfJoining DATE,
-  City VARCHAR(255)
+  City SURAT
 );
 
 -- insert sample data into EmployeeDetails
 INSERT INTO EmployeeDetails (EmpId, FullName, ManagerId, DateOfJoining, City)
-VALUES (1, 'Shreya', NULL, '2020-01-01', 'Pune'),
-       (2, 'Milind', 1, '2000-02-15', 'Mumbai'),
-       (3, 'Sakshi', 1, '2012-02-15', 'Nashik'),
-       (4, 'Pavan', 1, '2017-03-05', 'Nashik');
+VALUES (1, 'Kanak', NULL, '2022-02-01', 'Surat'),
+       (2, 'Kruti', 1, '2006-12-24', 'Jamnagar'),
+       (3, 'Aryan', 1, '2012-02-15', 'Junagadh'),
+       (4, 'Meet', 1, '2021-12-16', 'Surat');
 
 
  -- create EmployeeDetails table      
@@ -33,11 +33,11 @@ VALUES (1, 'Shreya', NULL, '2020-01-01', 'Pune'),
 
 -- insert sample data into EmployeeSalary
 INSERT INTO EmployeeSalary (EmpId, Project, Salary, Variable)
-VALUES (1, 'Project A', 5000.00, 1000.00),
-       (1, 'Project B', 4500.00, 900.00),
-       (2, 'Project A', 5500.00, 1100.00),
-       (2, 'Project C', 6000.00, 1200.00),
-       (3, 'Project B', 4000.00, 800.00);
+VALUES (1, 'Project A', 8000.00, 900.00),
+       (1, 'Project B', 5500.00, 800.00),
+       (2, 'Project A', 6500.00, 1500.00),
+       (2, 'Project C', 5000.00, 1000.00),
+       (3, 'Project B', 4000.00, 600.00);
 
 --1.SQL Query to fetch records that are present in one table but not in another table.
 SELECT EmployeeDetails.*
@@ -52,10 +52,10 @@ WHERE EmpId NOT IN (
   SELECT EmpId
   FROM EmployeeSalary
 )
---3.SQL query to fetch all the Employees from EmployeeDetails who joined in the Year 2020.
+--3.SQL query to fetch all the Employees from EmployeeDetails who joined in the Year 2021.
 SELECT *
 FROM EmployeeDetails
-WHERE YEAR(DateOfJoining) = 2020
+WHERE YEAR(DateOfJoining) = 2021
 
 --4.Fetch all employees from EmployeeDetails who have a salary record in EmployeeSalary.
 SELECT ed.*
@@ -79,6 +79,7 @@ SELECT e1.*
 FROM EmployeeDetails e1
 INNER JOIN EmployeeDetails e2
   ON e1.EmpId = e2.ManagerId
+  
 --8.Write an SQL query to fetch duplicate records from EmployeeDetails.
 SELECT FullName, ManagerId, DateOfJoining, City, COUNT(*)
 FROM EmployeeDetails
