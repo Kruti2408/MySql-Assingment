@@ -7,10 +7,10 @@ use sqlAssignment;
 -- create EmployeeDetails table
 CREATE TABLE EmployeeDetails (
   EmpId INT NOT NULL PRIMARY KEY,
-  FullName KANAK NOT NULL,
+  FullName  NOT NULL,
   ManagerId INT,
   DateOfJoining DATE,
-  City SURAT
+  City 
 );
 
 -- insert sample data into EmployeeDetails
